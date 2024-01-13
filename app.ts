@@ -2,8 +2,8 @@ import inquirer from "inquirer";
 import chalk from "chalk";
 import showBanner from "node-banner";
 
-//self-calling function to display calculator title and image
-(function showCalcTitleAndImage() {
+//function to display calculator title and image
+const showCalcTitleAndImage = () => {
   showBanner(
     "Calculator",
     `Simple Command Line Calculator written in TypeScript & Node.js
@@ -25,8 +25,10 @@ import showBanner from "node-banner";
     "green",
     "gray"
   );
-})();
+};
+showCalcTitleAndImage();
 
+//calculator function
 const calculator = () => {
   const answers = inquirer
     .prompt([
@@ -51,39 +53,48 @@ const calculator = () => {
       if (answers.operation == "Addition") {
         console.log(
           chalk.greenBright(
-            `First number + second number = ${
-              answers.num1 + answers.num2
-            }`
+            `First number + second number = ${answers.num1 + answers.num2}`
           )
         );
       } else if (answers.operation == "Subtraction") {
         console.log(
           chalk.greenBright(
-            `First number - second number = ${
-              answers.num1 - answers.num2
-            }`
+            `First number - second number = ${answers.num1 - answers.num2}`
           )
         );
       } else if (answers.operation == "Multiplication") {
         console.log(
           chalk.greenBright(
-            `First number * second number = ${
-              answers.num1 * answers.num2
-            }`
+            `First number * second number = ${answers.num1 * answers.num2}`
           )
         );
       } else {
         console.log(
           chalk.greenBright(
-            `First number / second number = ${
-              answers.num1 / answers.num2
-            }`
+            `First number / second number = ${answers.num1 / answers.num2}`
           )
         );
       }
     });
 };
-
 setTimeout(calculator, 1000);
 
+//pending ->
 
+// //function to ask user whether to continue calculation or not (incomplete)
+// const ContinueOrEnd = () => {
+//   const ans = inquirer
+//     .prompt([
+//       {
+//         name: "userInput",
+//         type: "list",
+//         choices: ["Yes", "No"],
+//         message: "Do you want to contine calculation?",
+//       },
+//     ])
+//     .then((ans) => {
+//       if (ans.userInput == "Yes") {
+//         calculator();
+//       }
+//     })
+// };
