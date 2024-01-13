@@ -10,10 +10,12 @@
   "author": "Sarfaraz",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^5.3.0",
     "inquirer": "^9.2.12",
-    "chalk": "^5.3.0"
+    "node-banner": "^1.4.0"
   },
   "devDependencies": {
+    "@types/chalk": "^2.2.0",
     "@types/inquirer": "^9.0.7",
     "@types/node": "^20.10.5"
   }

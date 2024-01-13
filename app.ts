@@ -1,40 +1,89 @@
 import inquirer from "inquirer";
 import chalk from "chalk";
+import showBanner from "node-banner";
 
-let { num1, num2, operation } = await inquirer.prompt([
-    {
-        name: "num1",
-        type: "number",
-        message: "Enter first number"
-    },
-    {
-        name: "num2",
-        type: "number",
-        message: "Enter second number"
-    },
-    {
+//self-calling function to display calculator title and image
+(function showCalcTitleAndImage() {
+  showBanner(
+    "Calculator",
+    `Simple Command Line Calculator written in TypeScript & Node.js
+    _____________________
+    |  _________________  |
+    | |            0. | |
+    | |_________________| |
+    |  ___ ___ ___   ___  |
+    | | 7 | 8 | 9 | | + | |
+    | |___|___|___| |___| |
+    | | 4 | 5 | 6 | | - | |
+    | |___|___|___| |___| |
+    | | 1 | 2 | 3 | | x | |
+    | |___|___|___| |___| |
+    | | . | 0 | = | | / | |
+    | |___|___|___| |___| |
+    |_____________________|
+    `,
+    "green",
+    "gray"
+  );
+})();
+
+const calculator = () => {
+  const answers = inquirer
+    .prompt([
+      {
         name: "operation",
         type: "list",
-        choices: ["addition", "subtraction", "multiplication", "division"],
-        message: "Choose any operation"
-    }
-]);
+        choices: ["Addition", "Subtraction", "Multiplication", "Division"],
+        message: chalk.bgGray("Choose any operation"),
+      },
+      {
+        name: "num1",
+        type: "number",
+        message: chalk.green("Enter first number"),
+      },
+      {
+        name: "num2",
+        type: "number",
+        message: chalk.green("Enter second number"),
+      },
+    ])
+    .then((answers) => {
+      if (answers.operation == "Addition") {
+        console.log(
+          chalk.greenBright(
+            `First number + second number = ${
+              answers.num1 + answers.num2
+            }`
+          )
+        );
+      } else if (answers.operation == "Subtraction") {
+        console.log(
+          chalk.greenBright(
+            `First number - second number = ${
+              answers.num1 - answers.num2
+            }`
+          )
+        );
+      } else if (answers.operation == "Multiplication") {
+        console.log(
+          chalk.greenBright(
+            `First number * second number = ${
+              answers.num1 * answers.num2
+            }`
+          )
+        );
+      } else {
+        console.log(
+          chalk.greenBright(
+            `First number / second number = ${
+              answers.num1 / answers.num2
+            }`
+          )
+        );
+      }
+    });
+};
 
-if (operation === "addition") {
-    console.log(chalk.green(`num1 + num2 = ${num1 + num2}`));
-
-} else if (operation === "subtraction") {
-    console.log(chalk.green(`num1 + num2 = ${num1 - num2}`));
-
-} else if (operation === "multiplication") {
-    console.log(chalk.green(`num1 + num2 = ${num1 * num2}`))
-} else {
-    console.log(chalk.green(`num1 + num2 = ${num1 / num2}`));
-}
-
-
-
-
-
+setTimeout(calculator, 1000);
 
 
