@@ -31,8 +31,8 @@ const showCalcTitleAndImage = () => {
 showCalcTitleAndImage();
 
 //calculator function
-const calculator = async() => {
-  const answers = await inquirer
+const calculator = () => {
+  const answers = inquirer
     .prompt([
       {
         name: "operation",
@@ -79,4 +79,4 @@ const calculator = async() => {
       }
     });
 };
-calculator(); //used setTimeout function because inquirer was prompting before displaying the calculator
+setTimeout(calculator, 1000); //used setTimeout function because inquirer was prompting before displaying the calculator

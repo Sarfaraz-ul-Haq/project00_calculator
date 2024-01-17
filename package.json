@@ -1,11 +1,11 @@
 {
-  "name": "sarfaraz_calculator",
-  "version": "1.0.3",
+  "name": "sarfaraz.calculator",
+  "version": "1.0.0",
   "description": "Simple Command Line Calculator using TypeScript, Node.js and Inquirer.",
   "main": "dist/app.js",
   "type": "module",
   "bin": {
-    "sarfaraz_calculator": "dist/app.js"
+    "sarfaraz-calculator": "dist/app.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +16,8 @@
     "chalk": "^5.3.0",
     "chalk-animation": "^2.0.3",
     "inquirer": "^9.2.12",
-    "node-banner": "^1.4.0"
+    "node-banner": "^1.4.0",
+    "sarfaraz_calculator": "^1.0.4"
   },
   "devDependencies": {
     "@types/chalk": "^2.2.0",
