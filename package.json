@@ -1,11 +1,11 @@
 {
   "name": "sarfaraz.calculator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple Command Line Calculator using TypeScript, Node.js and Inquirer.",
   "main": "dist/app.js",
   "type": "module",
   "bin": {
-    "sarfaraz-calculator": "dist/app.js"
+    "sarfaraz.calculator": "dist/app.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

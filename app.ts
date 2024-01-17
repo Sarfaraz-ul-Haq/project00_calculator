@@ -24,8 +24,7 @@ const showCalcTitleAndImage = () => {
     | |___|___|___| |___| |
     |_____________________|
     `,
-    "green",
-    "gray"
+    "green", "gray"
   );
 };
 showCalcTitleAndImage();
