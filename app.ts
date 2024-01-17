@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import inquirer from "inquirer";
 import chalk from "chalk";
 import showBanner from "node-banner";
@@ -22,8 +24,7 @@ const showCalcTitleAndImage = () => {
     | |___|___|___| |___| |
     |_____________________|
     `,
-    "green",
-    "gray"
+    "green", "gray"
   );
 };
 showCalcTitleAndImage();
@@ -77,24 +78,4 @@ const calculator = () => {
       }
     });
 };
-setTimeout(calculator, 1000);
-
-//pending ->
-
-// //function to ask user whether to continue calculation or not (incomplete)
-// const ContinueOrEnd = () => {
-//   const ans = inquirer
-//     .prompt([
-//       {
-//         name: "userInput",
-//         type: "list",
-//         choices: ["Yes", "No"],
-//         message: "Do you want to contine calculation?",
-//       },
-//     ])
-//     .then((ans) => {
-//       if (ans.userInput == "Yes") {
-//         calculator();
-//       }
-//     })
-// };
+setTimeout(calculator, 1000); //used setTimeout function because inquirer was prompting before displaying the calculator
