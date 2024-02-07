@@ -3,13 +3,14 @@
 import inquirer from "inquirer";
 import chalk from "chalk";
 import showBanner from "node-banner";
+import { add, subtract, multiply, divide } from "./functions.js";
 
 //function to display calculator title and image
-const showCalcTitleAndImage = () => {
-  showBanner(
+const displayCalcTitleAndImage = async () => {
+  await showBanner(
     "Calculator",
     `Simple Command Line Calculator written in TypeScript & Node.js
-    _____________________
+     _____________________
     |  _________________  |
     | |            0. | |
     | |_________________| |
@@ -24,58 +25,41 @@ const showCalcTitleAndImage = () => {
     | |___|___|___| |___| |
     |_____________________|
     `,
-    "green", "gray"
+    "green",
+    "gray"
   );
 };
-showCalcTitleAndImage();
 
-//calculator function
-const calculator = () => {
-  const answers = inquirer
-    .prompt([
-      {
-        name: "operation",
-        type: "list",
-        choices: ["Addition", "Subtraction", "Multiplication", "Division"],
-        message: chalk.bgGray("Choose any operation"),
-      },
-      {
-        name: "num1",
-        type: "number",
-        message: chalk.green("Enter first number"),
-      },
-      {
-        name: "num2",
-        type: "number",
-        message: chalk.green("Enter second number"),
-      },
-    ])
-    .then((answers) => {
-      if (answers.operation == "Addition") {
-        console.log(
-          chalk.greenBright(
-            `First number + second number = ${answers.num1 + answers.num2}`
-          )
-        );
-      } else if (answers.operation == "Subtraction") {
-        console.log(
-          chalk.greenBright(
-            `First number - second number = ${answers.num1 - answers.num2}`
-          )
-        );
-      } else if (answers.operation == "Multiplication") {
-        console.log(
-          chalk.greenBright(
-            `First number * second number = ${answers.num1 * answers.num2}`
-          )
-        );
-      } else {
-        console.log(
-          chalk.greenBright(
-            `First number / second number = ${answers.num1 / answers.num2}`
-          )
-        );
-      }
-    });
+// calculator function
+const calculator = async () => {
+  const { operation, num1, num2 } = await inquirer.prompt([
+    {
+      name: "operation",
+      type: "list",
+      choices: ["Addition", "Subtraction", "Multiplication", "Division"],
+      message: chalk.green("\nChoose any operation"),
+    },
+    {
+      name: "num1",
+      type: "number",
+      message: chalk.gray("\nEnter first number:"),
+    },
+    {
+      name: "num2",
+      type: "number",
+      message: chalk.gray("\nEnter second number:\n"),
+    },
+  ]);
+  if (operation == "Addition") {
+    console.log(chalk.green(add(num1, num2)));
+  } else if (operation == "subtraction") {
+    console.log(chalk.green(subtract(num1, num2)));
+  } else if (operation == "multiplication") {
+    console.log(chalk.green(multiply(num1, num2)));
+  } else {
+    console.log(chalk.green(divide(num1, num2)));
+  }
 };
-setTimeout(calculator, 1000); //used setTimeout function because inquirer was prompting before displaying the calculator
+
+await displayCalcTitleAndImage();
+calculator();
