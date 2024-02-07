@@ -52,9 +52,9 @@ const calculator = async () => {
   ]);
   if (operation == "Addition") {
     console.log(chalk.green(Math.round(add(num1, num2))));
-  } else if (operation == "subtraction") {
+  } else if (operation == "Subtraction") {
     console.log(chalk.green(Math.round(subtract(num1, num2))));
-  } else if (operation == "multiplication") {
+  } else if (operation == "Multiplication") {
     console.log(chalk.green(Math.round(multiply(num1, num2))));
   } else {
     console.log(chalk.green(Math.round(divide(num1, num2))));
