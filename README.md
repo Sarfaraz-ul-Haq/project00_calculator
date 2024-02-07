@@ -1,4 +1,3 @@
-<h2>Simple Command Line Calculator using TypeScript, Node.js and Inquirer</h2>
-
+# npx command
 npm i sarfaraz-calculator
-
+npx sarfaraz-calculator
