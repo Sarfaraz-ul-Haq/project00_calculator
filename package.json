@@ -1,6 +1,6 @@
 {
   "name": "sarfaraz-calculator",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Simple Command Line Calculator using TypeScript, Node.js and Inquirer.",
   "main": "dist/app.js",
   "type": "module",
@@ -8,8 +8,7 @@
     "sarfaraz-calculator": "./dist/app.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "npm outdated && echo 'Newer version available! Run npm update to install'"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sarfaraz",
   "license": "ISC",
