@@ -39,7 +39,7 @@ const calculator = async () => {
             message: chalk.gray("Enter first number:"),
             validate: (num) => {
                 if (isNaN(num)) {
-                    return "Please enter a number: ";
+                    return "Please press up key and enter a number: ";
                 }
                 return true;
             },
@@ -50,7 +50,7 @@ const calculator = async () => {
             message: chalk.gray("Enter second number:"),
             validate: (num) => {
                 if (isNaN(num)) {
-                    return "Please enter a number: ";
+                    return "Please press up key and enter a number: ";
                 }
                 return true;
             },
