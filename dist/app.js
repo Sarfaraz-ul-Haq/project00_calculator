@@ -5,7 +5,9 @@ import showBanner from "node-banner";
 import { add, subtract, multiply, divide } from "./functions.js";
 //function to display calculator title and image
 const displayCalcTitleAndImage = async () => {
-    await showBanner("Calculator", `Simple Command Line Calculator written in TypeScript & Node.js
+    await showBanner(`   Calculator`, ` Simple Command Line Calculator written in TypeScript & Node.js
+  ______________________________________________________________
+
      _____________________
     |  _________________  |
     | |            0. | |
@@ -34,26 +36,47 @@ const calculator = async () => {
         {
             name: "num1",
             type: "number",
-            message: chalk.gray("\nEnter first number:"),
+            message: chalk.gray("Enter first number:"),
         },
         {
             name: "num2",
             type: "number",
-            message: chalk.gray("\nEnter second number:\n"),
+            message: chalk.gray("Enter second number:"),
         },
     ]);
     if (operation == "Addition") {
-        console.log(chalk.green(Math.round(add(num1, num2))));
+        console.log(chalk.red(`Sum of first and second number is: ${chalk.green(add(num1, num2))}`));
     }
     else if (operation == "Subtraction") {
-        console.log(chalk.green(Math.round(subtract(num1, num2))));
+        console.log(chalk.red(`Sum of first and second number is: ${chalk.green(subtract(num1, num2))}`));
     }
     else if (operation == "Multiplication") {
-        console.log(chalk.green(Math.round(multiply(num1, num2))));
+        console.log(chalk.red(`Sum of first and second number is: ${chalk.green(multiply(num1, num2))}`));
     }
     else {
-        console.log(chalk.green(Math.round(divide(num1, num2))));
+        console.log(chalk.red(`Sum of first and second number is: ${chalk.green(divide(num1, num2))}`));
+    }
+    promptUserToContinueOrExit();
+};
+// function to prompt user to continue calculation or exit
+const promptUserToContinueOrExit = async () => {
+    const continueOrExit = await inquirer.prompt({
+        name: "userAns",
+        type: "list",
+        choices: ["Continue", "Exit"],
+        message: chalk.green("\nDo you want to continue calculation or exit?"),
+    });
+    if (continueOrExit.userAns == "Continue") {
+        calculator();
+    }
+    else {
+        console.clear();
+        showBanner(`Thanks for trying !`, `  ____________________________________________________________________________________`, "green", "gray");
     }
 };
-await displayCalcTitleAndImage();
-calculator();
+// main function to run calculator
+const start = async () => {
+    await displayCalcTitleAndImage();
+    calculator();
+};
+start();
