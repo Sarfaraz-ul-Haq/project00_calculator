@@ -1,6 +1,6 @@
 {
   "name": "sarfaraz-calculator",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Simple Command Line Calculator using TypeScript, Node.js and Inquirer.",
   "main": "dist/app.js",
   "type": "module",
