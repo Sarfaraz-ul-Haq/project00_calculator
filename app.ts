@@ -45,11 +45,23 @@ const calculator = async () => {
       name: "num1",
       type: "number",
       message: chalk.gray("Enter first number:"),
+      validate: (num) => {
+        if (isNaN(num)) {
+          return "Please enter a number: ";
+        }
+        return true;
+      },
     },
     {
       name: "num2",
       type: "number",
       message: chalk.gray("Enter second number:"),
+      validate: (num) => {
+        if (isNaN(num)) {
+          return "Please enter a number: ";
+        }
+        return true;
+      },
     },
   ]);
   if (operation == "Addition") {
@@ -61,7 +73,7 @@ const calculator = async () => {
   } else if (operation == "Subtraction") {
     console.log(
       chalk.red(
-        `Sum of first and second number is: ${chalk.green(
+        `Difference of first and second number is: ${chalk.green(
           subtract(num1, num2)
         )}`
       )
@@ -69,7 +81,7 @@ const calculator = async () => {
   } else if (operation == "Multiplication") {
     console.log(
       chalk.red(
-        `Sum of first and second number is: ${chalk.green(
+        `Product of first and second number is: ${chalk.green(
           multiply(num1, num2)
         )}`
       )
@@ -77,7 +89,9 @@ const calculator = async () => {
   } else {
     console.log(
       chalk.red(
-        `Sum of first and second number is: ${chalk.green(divide(num1, num2))}`
+        `Quotient of first and second number is: ${chalk.green(
+          divide(num1, num2)
+        )}`
       )
     );
   }
