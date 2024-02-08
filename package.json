@@ -8,7 +8,8 @@
     "sarfaraz-calculator": "./dist/app.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "npm outdated && echo 'Newer version available! Run npm update to install'"
   },
   "author": "Sarfaraz",
   "license": "ISC",
