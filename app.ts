@@ -101,13 +101,13 @@ const calculator = async () => {
 
 // function to prompt user to continue calculation or exit
 const continueOrQuit = async () => {
-  const { continueOrNot } = await inquirer.prompt({
+  const continueOrNot = await inquirer.prompt({
     name: "answer",
     type: "list",
     choices: ["Yes", "No"],
     message: chalk.green("\nDo you want to use calculator again?"),
   });
-  if (continueOrNot == "Yes") {
+  if (continueOrNot.answer == "Yes") {
     calculator();
   } else {
     console.clear();
