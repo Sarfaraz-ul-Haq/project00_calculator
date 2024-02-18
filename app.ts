@@ -96,18 +96,18 @@ const calculator = async () => {
     );
   }
 
-  promptUserToContinueOrExit();
+  continueOrQuit();
 };
 
 // function to prompt user to continue calculation or exit
-const promptUserToContinueOrExit = async () => {
-  const continueOrExit = await inquirer.prompt({
-    name: "userAns",
+const continueOrQuit = async () => {
+  const { continueOrNot } = await inquirer.prompt({
+    name: "answer",
     type: "list",
-    choices: ["Continue", "Exit"],
-    message: chalk.green("\nDo you want to continue calculation or exit?"),
+    choices: ["Yes", "No"],
+    message: chalk.green("\nDo you want to use calculator again?"),
   });
-  if (continueOrExit.userAns == "Continue") {
+  if (continueOrNot == "Yes") {
     calculator();
   } else {
     console.clear();
@@ -120,10 +120,5 @@ const promptUserToContinueOrExit = async () => {
   }
 };
 
-// main function to run calculator
-const start = async () => {
-  await displayCalcTitleAndImage();
-  calculator();
-};
-
-start();
+await displayCalcTitleAndImage();
+calculator();
