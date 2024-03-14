@@ -5,7 +5,7 @@ export const displayCalcTitleAndImage = async () => {
   await showBanner(
     `   Calculator`,
     ` Simple Command Line Calculator written in TypeScript & Node.js
-    ______________________________________________________________
+  ______________________________________________________________
   
        _____________________
       |  _________________  |
